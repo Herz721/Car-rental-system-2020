@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane fx:id="outerTabpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.usercontroller">
+  <tabs>
+    <Tab fx:id="carquerytab" text="汽车查询">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="carquerytable" layoutY="82.0" prefHeight="278.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="carquerycolumncarid" prefWidth="53.0" text="ID" />
+                      <TableColumn fx:id="carquerycolumncarname" prefWidth="101.0" text="品牌" />
+                        <TableColumn fx:id="carquerycolumnauthor" prefWidth="56.0" text="变速" />
+                        <TableColumn fx:id="carquerycolumnpress" prefWidth="61.0" text="座位数" />
+                        <TableColumn fx:id="carquerycolumnclass" prefWidth="89.0" text="类型" />
+                        <TableColumn fx:id="carquerycolumnlocation" prefWidth="103.0" text="商家地址" />
+                        <TableColumn fx:id="carquerycolumnfree" prefWidth="68.0" text="是否空闲" />
+                        <TableColumn fx:id="carquerycolumnmoney" prefWidth="68.0" text="租金(日)" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="7.0" layoutY="14.0" text="品牌：" />
+                  <TextField fx:id="carquerycarnametextfield" layoutX="67.0" layoutY="9.0" prefHeight="27.0" prefWidth="132.0" promptText="所有" />
+                  <TextField fx:id="carqueryauthortextfield" layoutX="289.0" layoutY="9.0" prefHeight="30.0" prefWidth="117.0" promptText="所有" />
+                  <Label layoutX="234.0" layoutY="14.0" text="变速：" />
+                  <Label layoutX="234.0" layoutY="50.0" text="类型：" />
+                  <TextField fx:id="carqueryclasstextfield" layoutX="290.0" layoutY="45.0" prefHeight="27.0" prefWidth="117.0" promptText="所有" />
+                  <Label layoutX="7.0" layoutY="54.0" text="座位数：" />
+                  <TextField fx:id="carquerypresstextfield" layoutX="67.0" layoutY="49.0" prefHeight="27.0" prefWidth="132.0" promptText="所有" />
+                  <RadioButton fx:id="carqueryfreeradiobutton" layoutX="453.0" layoutY="14.0" mnemonicParsing="false" onAction="#querycar" onMouseClicked="#querycar" text="空闲" />
+                  <Button fx:id="carqueryquerybutton" layoutX="456.0" layoutY="45.0" mnemonicParsing="false" onMouseClicked="#querycar" text="查询" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab fx:id="rentquerytab" text="租车记录">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="rentquerytable" layoutY="-2.0" prefHeight="360.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="rentquerycolumncarname" prefWidth="117.0" text="汽车ID" />
+                      <TableColumn fx:id="rentquerycolumnstarttime" minWidth="0.0" prefWidth="182.0" text="租车时间" />
+                        <TableColumn fx:id="rentquerycolumnendtime" prefWidth="198.0" text="还车时间" />
+                        <TableColumn fx:id="rentquerycolumnreturn" prefWidth="102.0" text="是否付款" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+    <Tab fx:id="infoquerytab" text="基本信息">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="166.0" layoutY="72.0" text="ID:" />
+                  <Label layoutX="166.0" layoutY="120.0" text="姓名：" />
+                  <Label layoutX="166.0" layoutY="168.0" text="性别：" />
+                  <Label layoutX="166.0" layoutY="215.0" text="密码：" />
+                  <TextField fx:id="infoqueryuseridtextfield" editable="false" layoutX="222.0" layoutY="67.0" />
+                  <TextField fx:id="infoqueryusernametextfield" editable="false" layoutX="222.0" layoutY="115.0" />
+                  <TextField fx:id="infoquerypasswordtextfield" editable="false" layoutX="222.0" layoutY="210.0" />
+                  <TextField fx:id="infoquerysextextfield" editable="false" layoutX="222.0" layoutY="163.0" />
+                  <Label layoutX="166.0" layoutY="264.0" text="等级：" />
+                  <TextField fx:id="infoqueryranktextfield" layoutX="222.0" layoutY="259.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="付款记录">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="profittableview" prefHeight="362.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn fx:id="profitcolumncarid" prefWidth="97.0" text="汽车ID" />
+                      <TableColumn fx:id="profitcolumncarname" prefWidth="106.0" text="汽车品牌" />
+                        <TableColumn fx:id="profitcolumnovertime" prefWidth="100.0" text="违章次数" />
+                        <TableColumn fx:id="profitcolumnoverday" prefWidth="107.0" text="租借天数" />
+                        <TableColumn fx:id="profitcolumnbroken" prefWidth="99.0" text="是否损坏" />
+                        <TableColumn fx:id="profitcolumnfine" prefWidth="90.0" text="缴纳金额" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>
